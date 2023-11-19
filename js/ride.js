@@ -44,6 +44,7 @@ let map;
 
     //  completeRequest
     //      a Unicorn has been dispatched to your location
+    var unicornNames = ['James1', 'James2', 'James3'];
     function completeRequest(result, pickupLocation) {
         var unicorn;
         var pronoun;
@@ -51,7 +52,8 @@ let map;
         console.log('Response received from API: ', result);
         unicorn = result.Unicorn;
         pronoun = unicorn.Gender === 'Male' ? 'his' : 'her';
-        displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, is on ' + pronoun + ' way.', unicorn.Color);
+        var randomName = unicornNames[Math.floor(Math.random() * unicornNames.length)];
+        displayUpdate(randomName + ', your ' + unicorn.Color + ' unicorn, is on ' + pronoun + ' way.', unicorn.Color);
 
         console.log(pickupLocation);
         //  get the local weather, find nearby restaurants, movies
